@@ -12,7 +12,7 @@ jobs:
           echo $GITHUB_REPOSITORY   # Current Git Repo
           echo $GITHUB_WORKSPACE    # Current working dir
           echo "${{ github.token }}"
-          git clone git@github:sangkhuu/$GITHUB_REPONSITORY
+          git clone git@github:$GITHUB_REPONSITORY.git
           git checkout $GITHUB_SHA
 
       # - name: Checkout
