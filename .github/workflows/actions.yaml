@@ -4,13 +4,18 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
-      - name: List Files
+      - name: List Files 1
         run: |
           pwd
           ls
-      
+
       - name: Checkout
-        uses: /actions/checkout@v1
+        uses: /actions/checkout@v1 # For clonning repo to working dir
+
+      - name: List Files 1
+        run: |
+          pwd
+          ls
 
       - name: Simple JS Actions
         id: greet
