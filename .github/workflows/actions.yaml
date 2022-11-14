@@ -1,0 +1,16 @@
+name: Actions Workflow
+on: [push]
+jobs:
+  run-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simple JS Actions
+        id: greet
+        uses: actions/hello-world-javascript-action@v1  
+        # Get the action from tag v1 https://github.com/actions/hello-world-javascript-action@v1 (latest version of v1.x.x)
+        # Get the action from master branch: https://github.com/actions/hello-world-javascript-action@master
+        # Get the action from specific commit: https://github.com/actions/hello-world-javascript-action@a890778ab02f64b1f3d094cd3e486582de43196a
+        with:
+          who-to-greet: Sang # input from the action
+      - name: Log Greeting Time
+        run: echo "${{ steps.greet.outputs.time }}"
