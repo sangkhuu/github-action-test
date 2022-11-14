@@ -8,8 +8,8 @@ jobs:
         run: |
           pwd
           ls -a
-          echo $GITHUB_SHA
-          echo $GITHUB_REPONSITORY
+          echo $GITHUB_SHA          # Your Commit Hash
+          echo $GITHUB_REPOSITORY   # Current Git Repo
           echo $GITHUB_WORKSPACE
           echo "${{ github.token }}"
           # git clone git@github:sangkhuu/$GITHUB_REPONSITORY
