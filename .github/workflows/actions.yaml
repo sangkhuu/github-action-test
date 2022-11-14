@@ -7,7 +7,13 @@ jobs:
       - name: List Files 1
         run: |
           pwd
-          ls
+          ls -a
+          echo $GITHUB_SHA
+          echo $GITHUB_REPONSITORY
+          echo $GITHUB_WORKSPACE
+          echo "${{ github.token }}"
+          # git clone git@github:sangkhuu/$GITHUB_REPONSITORY
+          # git checkout $GITHUB_SHA
 
       - name: Checkout
         uses: /actions/checkout@v1 # For clonning repo to working dir
