@@ -19,6 +19,7 @@ jobs:
           import platform
           print(platform.processor())
         shell: python
+        
   run-windows-commands:
     runs-on: windows-latest
     needs: [run-shell-command]  # Need mean depends_on

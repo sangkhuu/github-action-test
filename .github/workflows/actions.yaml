@@ -10,13 +10,13 @@ jobs:
           ls -a
           echo $GITHUB_SHA          # Your Commit Hash
           echo $GITHUB_REPOSITORY   # Current Git Repo
-          echo $GITHUB_WORKSPACE
+          echo $GITHUB_WORKSPACE    # Current working dir
           echo "${{ github.token }}"
-          # git clone git@github:sangkhuu/$GITHUB_REPONSITORY
-          # git checkout $GITHUB_SHA
+          git clone git@github:sangkhuu/$GITHUB_REPONSITORY
+          git checkout $GITHUB_SHA
 
-      - name: Checkout
-        uses: /actions/checkout@v1 # For clonning repo to working dir
+      # - name: Checkout
+      #   uses: /actions/checkout@v1 # For clonning repo to working dir
 
       - name: List Files 1
         run: |
