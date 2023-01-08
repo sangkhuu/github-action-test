@@ -14,6 +14,7 @@ jobs:
           npm -v
           pwd
           whoami
+          which aws
       - name: Python Commands
         run: |
           import platform
