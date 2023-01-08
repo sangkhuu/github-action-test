@@ -11,6 +11,7 @@ jobs:
         run: |
           pwd
           ls -a
+          whoami
           echo $GITHUB_SHA          # Your Commit Hash
           echo $GITHUB_REPOSITORY   # Current Git Repo
           echo $GITHUB_WORKSPACE    # Current working dir
