@@ -5,6 +5,8 @@ on:
     branches:
       - master
       - develop
+      - 'release/*' # match: release/1.0.0, not match release/1.0.0/beta
+      - 'release/**' # match all release/xxxx/xxx
 
 jobs:
   run-github-actions:
