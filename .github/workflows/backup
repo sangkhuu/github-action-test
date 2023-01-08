@@ -54,8 +54,20 @@ jobs:
           ls -a
           whoami
 
-curl -H "Accept: application/vnd.github.everest-preview+json" \
-    -H "Authorization: token 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" \
-    --request POST \
-    --data '{"event_type": "build"}' \
-    https://api.github.com/repos/sangkhuu/github-action-test/dispatches
+### dispath
+name: Actions Workflow
+on:
+  repository_dispatch:
+    types: build
+  pull_request:
+    type: [opened, reopened, closed, assigned]
+
+jobs:
+  run-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List Files 1
+        run: |
+          pwd
+          ls -a
+          whoami
