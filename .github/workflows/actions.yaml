@@ -1,8 +1,8 @@
 name: Actions Workflow
 on:
-  schedule:
-    - cron: "0/5 * * * *" # “At every 5th minute.
-    - cron: "0 1 1 1 *" # “At 01:00 on day-of-month 1 in January.”
+  repository_dispatch:
+  pull_request:
+    type: [opened, reopened, closed, assigned]
 
 jobs:
   run-github-actions:

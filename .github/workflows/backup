@@ -35,3 +35,21 @@ jobs:
       
       # - name: Log Greeting Time
       #   run: echo "${{ steps.greet.outputs.time }}"
+
+
+### schedule example
+name: Actions Workflow
+on:
+  schedule:
+    - cron: "0/5 * * * *" # “At every 5th minute.
+    - cron: "0 1 1 1 *" # “At 01:00 on day-of-month 1 in January.”
+
+jobs:
+  run-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List Files 1
+        run: |
+          pwd
+          ls -a
+          whoami
