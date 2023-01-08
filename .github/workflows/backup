@@ -53,3 +53,9 @@ jobs:
           pwd
           ls -a
           whoami
+
+curl -H "Accept: application/vnd.github.everest-preview+json" \
+    -H "Authorization: token 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" \
+    --request POST \
+    --data '{"event_type": "build"}' \
+    https://api.github.com/repos/sangkhuu/github-action-test/dispatches
