@@ -11,9 +11,6 @@ jobs:
           echo $GITHUB_SHA          # Your Commit Hash
           echo $GITHUB_REPOSITORY   # Current Git Repo
           echo $GITHUB_WORKSPACE    # Current working dir
-          echo "${{ github.token }}"
-          git clone git@github.com:$GITHUB_REPONSITORY.git
-          git checkout $GITHUB_SHA
           which aws
 
 
