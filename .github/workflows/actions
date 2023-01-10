@@ -5,8 +5,14 @@ on:
     branches:
       - master
       - develop
-      - 'release/*' # match: release/1.0.0, not match release/1.0.0/beta
-      - 'release/**' # match all release/xxxx/xxx
+      - 'release/**' # match all release/xxxx/xx
+      - '!hotfix/**' # ignore hotfix
+    tags:
+      - 1.0.0
+      - v1.*
+    paths:
+      - '**.js'
+      
 
 jobs:
   run-github-actions:
