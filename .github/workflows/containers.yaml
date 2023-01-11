@@ -4,7 +4,7 @@ jobs:
   node-docker:
     runs-on: ubuntu-latest
     container: 
-      image: node:13.5.0-alpipe3.10
+      image: node:19-alpine
     
     steps:
       - name: Log node version
