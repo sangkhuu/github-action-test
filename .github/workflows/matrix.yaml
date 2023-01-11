@@ -1,10 +1,10 @@
-name: Matrix
+name: Matrix include exclude example
 on: push
 jobs:
   node-version:
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
+        os: [macos-latest, ubuntu-latest]
         node_version: [6,8,10]
         include:
           - os: ubuntu-latest
@@ -13,8 +13,8 @@ jobs:
         exclude:
           - os: macos-latest
             node_version: 6
-          - os: windows-latest
-            node_version: 7
+          - os: ubuntu-latest
+            node_version: 10
     runs-on: ${{ matrix.os }}
     env:
       IS_UBUNTU_8: ${{ matrix.is_ubuntu_8 }}
@@ -27,4 +27,4 @@ jobs:
       - name: Log node version after
         run: |
           node -v
-          echo ==> "IS_UBUNTU_8: ${IS_UBUNTU_8}"
+          echo ${IS_UBUNTU_8}
