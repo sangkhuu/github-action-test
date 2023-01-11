@@ -1,31 +1,53 @@
-name: Context testing
-on: push
+name: Function Testing
+on: [push, pull]
 
 jobs:
-  junctions_test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: dump
-        run: |
-          echo ${{ contains('Hello world', 'llo') }}
-          echo ${{ startsWith('Hello world', 'he') }}
-          echo ${{ endsWith('Hello world', 'lo') }}
-          echo ${{ format('Hello {0} {1} {2}', 'World', '!', '.') }}
 
-
-  dump_contexts_to_log:
+  function_status:
     runs-on: ubuntu-latest
+    if: github.event_name == 'push'
     steps:
       - name: Dump GitHub context
         id: github_context_step
-        run: echo '${{ toJSON(github) }}'
+        run: eccho '${{ toJSON(github) }}' #< use error command to make it failure
       - name: Dump job context
         run: echo '${{ toJSON(job) }}'
+        if: failure() #< The step still run also the previous step failure
       - name: Dump steps context
         run: echo '${{ toJSON(steps) }}'
+        if: always() #< The step alway run nomatter what happens in our workflow
       - name: Dump runner context
         run: echo '${{ toJSON(runner) }}'
       - name: Dump strategy context
         run: echo '${{ toJSON(strategy) }}'
       - name: Dump matrix context
         run: echo '${{ toJSON(matrix) }}'
+
+
+  # junctions_test:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: dump
+  #       run: |
+  #         echo ${{ contains('Hello world', 'llo') }}
+  #         echo ${{ startsWith('Hello world', 'he') }}
+  #         echo ${{ endsWith('Hello world', 'lo') }}
+  #         echo ${{ format('Hello {0} {1} {2}', 'World', '!', '.') }}
+
+
+  # dump_contexts_to_log:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Dump GitHub context
+  #       id: github_context_step
+  #       run: echo '${{ toJSON(github) }}'
+  #     - name: Dump job context
+  #       run: echo '${{ toJSON(job) }}'
+  #     - name: Dump steps context
+  #       run: echo '${{ toJSON(steps) }}'
+  #     - name: Dump runner context
+  #       run: echo '${{ toJSON(runner) }}'
+  #     - name: Dump strategy context
+  #       run: echo '${{ toJSON(strategy) }}'
+  #     - name: Dump matrix context
+  #       run: echo '${{ toJSON(matrix) }}'
