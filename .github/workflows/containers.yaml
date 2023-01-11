@@ -16,8 +16,8 @@ jobs:
       - name: Log node version
         uses: docker://node:14-alpine
         with: 
-          entrypoint: '/uar/local/bin/node'
-          args: '-v'
+          entrypoint: /uar/local/bin/node
+          args: -v
 
   # node-docker:
   #   runs-on: ubuntu-latest
